@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.metrics import classification_report, confusion_matrix
 import os
@@ -73,6 +74,20 @@ print(f"  R² Score: {r2:.3f}")
 # Cross-validation
 cv_scores = cross_val_score(rf_reg, X, y, cv=5, scoring='neg_mean_absolute_error')
 print(f"  5-Fold CV MAE: {-cv_scores.mean():.2f} ± {cv_scores.std():.2f}")
+
+# Baseline: Linear Regression
+print("\n--- Baseline: Linear Regression ---")
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+y_pred_lr = lr.predict(X_test)
+lr_mae = mean_absolute_error(y_test, y_pred_lr)
+lr_rmse = np.sqrt(mean_squared_error(y_test, y_pred_lr))
+lr_r2 = r2_score(y_test, y_pred_lr)
+print(f"  MAE:  {lr_mae:.2f} seasons")
+print(f"  RMSE: {lr_rmse:.2f} seasons")
+print(f"  R²:   {lr_r2:.3f}")
+print(f"\n  Random Forest improvement over Linear Regression:")
+print(f"  MAE  {lr_mae:.2f} → {mae:.2f} ({((lr_mae - mae) / lr_mae * 100):.1f}% better)")
 
 # Predicted vs Actual
 fig, ax = plt.subplots()

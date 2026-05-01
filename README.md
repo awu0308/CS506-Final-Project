@@ -26,7 +26,7 @@ make clean
 **Dependencies:** Install required packages with:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn nba_api
+pip install -r requirements.txt
 ```
 
 ## Data Processing
@@ -226,6 +226,17 @@ The classification model's per-class precision, recall, and F1 scores are shown 
 ## Results
 
 The model predicts remaining competitive seasons using purely game-by-game stats and advanced statistics, with no injury history or age data. The top features by importance are `MPG` (by far the most important at ~0.35), `YEARS_IN_LEAGUE`, and `GP` — reflecting that current playing time and career stage are the strongest signals of remaining career length.
+
+### Baseline Comparison
+
+To justify the Random Forest choice, we compared against a Linear Regression baseline:
+
+| Model | MAE | RMSE | R² |
+|---|---|---|---|
+| Linear Regression (baseline) | 2.16 seasons | 2.79 seasons | 0.297 |
+| Random Forest | 2.07 seasons | 2.70 seasons | 0.340 |
+
+Random Forest outperforms linear regression across all metrics. The improvement in R² (0.297 → 0.340) confirms that career longevity has non-linear patterns that a simple linear model cannot capture — validating the choice of Random Forest.
 
 **Why the model may underperform:**
 - No injury history data — a single serious injury can end a career regardless of statistics

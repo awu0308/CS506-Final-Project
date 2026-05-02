@@ -2,7 +2,7 @@
 
 ## Presentation Links
 
-[Video](https://www.youtube.com/watch?v=jUK1JtRymAs)
+[Video](https://youtu.be/Cb5KKVAleio)
 
 [Slides](https://docs.google.com/presentation/d/1Xj4tetDtkjss58BXFqP95REscUXzYrM81QZmVYpDEzo/edit?usp=sharing)
 

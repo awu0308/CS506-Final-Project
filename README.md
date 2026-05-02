@@ -1,5 +1,11 @@
 # NBA Career Longevity Predictor
 
+## Presentation Links
+
+[Video](https://www.youtube.com/watch?v=jUK1JtRymAs)
+
+[Slides](https://docs.google.com/presentation/d/1Xj4tetDtkjss58BXFqP95REscUXzYrM81QZmVYpDEzo/edit?usp=sharing)
+
 ## Description
 
 This project builds a system that predicts how many **competitive seasons** an NBA player has remaining in their career. Using historical player statistics and advanced metrics pulled from the NBA API, the model estimates a player's remaining competitive window — defined as seasons where they maintain meaningful on-court contributions.
